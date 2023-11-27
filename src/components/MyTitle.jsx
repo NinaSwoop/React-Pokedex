@@ -1,3 +1,7 @@
-const MyTitle = () => <h1>Hello React</h1>;
+const MyTitle = () => {
+    return (
+        <h1>Hello React</h1>
+    );
+};
 
 export default MyTitle;
