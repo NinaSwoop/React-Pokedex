@@ -1,6 +1,6 @@
 import './App.css';
-import MyTitle from "./components/MyTitle";
-import PokemonCard from './components/PokemonCard';
+import MyTitle from './components/MyTitle/MyTitle.jsx';
+import PokemonCard from './components/PokemonCard/PokemonCard.jsx';
 
 function App() {
 
