@@ -4,8 +4,36 @@ import MyTitle from './components/MyTitle/MyTitle.jsx';
 import PokemonCard from './components/PokemonCard/PokemonCard.jsx';
 import NavBar from './components/Navbar/Navbar.jsx';
 
+// Import de la librairie React
+import React from "react";
+
 // Import du hook useState qui va définir l'état local
 import { useState } from "react";
+
+// Utilisation de la classe ErrorBoundary pour gérer les erreurs
+class ErrorBoundary extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { hasError: false };
+  }
+
+  static getDerivedStateFromError(error) {
+    return { hasError: true };
+  }
+
+  componentDidCatch(error, errorInfo) {
+    console.error('Error in component:', error);
+    console.error('Error info:', errorInfo);
+  }
+
+  render() {
+    if (this.state.hasError) {
+      return <div>Something went wrong.</div>;
+    }
+
+    return this.props.children;
+  }
+}
 
 function App() {
 
@@ -57,6 +85,7 @@ function App() {
 
   // Affichage du composant App
   return (
+    <ErrorBoundary>
     <>
       <div>
         <MyTitle />
@@ -65,8 +94,9 @@ function App() {
         {/* Affichage du composant PokemonCard avec la props pokemon qui prend la valeur de la constante currentPokemon */}
         <PokemonCard pokemon={currentPokemon} />
       </div>
-      <NavBar onPrevious={handlePrevious} onNext={handleNext} />
+      <NavBar onPrevious={handlePrevious} onNext={handleNext} pokemonIndex={pokemonIndex} pokemonList={pokemonList}/>
     </>
+    </ErrorBoundary>
   );
 };
 

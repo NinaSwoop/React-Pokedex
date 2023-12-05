@@ -1,6 +1,7 @@
 import React from "react";
 
 const Navbar = ({ onPrevious, onNext, pokemonIndex, pokemonList }) => {
+  console.log("Rendering Navbar", pokemonIndex, pokemonList);
   return (
     <div>
       {/* Si pokemonIndex est supérieur à 0, on affiche le bouton "précédent". On appelle onPrevious lors du clic. */}
