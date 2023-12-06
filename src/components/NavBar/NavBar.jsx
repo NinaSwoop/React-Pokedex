@@ -1,18 +1,13 @@
 import React from "react";
 
-const Navbar = ({ onPrevious, onNext, pokemonIndex, pokemonList }) => {
-  console.log("Rendering Navbar", pokemonIndex, pokemonList);
+const Navbar = ({ pokemonList, updatePokemon }) => {
   return (
     <div>
-      {/* Si pokemonIndex est supérieur à 0, on affiche le bouton "précédent". On appelle onPrevious lors du clic. */}
-      {pokemonIndex > 0 && (
-        <button onClick={() => onPrevious("previous")}>Précédent</button>
-      )}
-
-      {/* Si pokemonIndex est inférieur à la longueur du tableau - 1, on affiche le bouton "suivant". On appelle onNext lors du clic. */}
-      {pokemonIndex < pokemonList.length - 1 && (
-        <button onClick={() => onNext("next")}>Suivant</button>
-      )}
+     {/* On se  sert de la fonction map pour créer des boutons dynamiquement selon le nombre de pokémon, 
+     on met à jour le Pokémon en cliquant sur le bouton correspondant*/}
+      {pokemonList.map((pokemon, index) => (
+        <button key={index} onClick={() => updatePokemon(index)}>{pokemon.name}</button>
+      ))}
     </div>
   );
 };

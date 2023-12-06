@@ -67,17 +67,9 @@ function App() {
     },
   ];
 
-  const handlePrevious = () => {
-    if (pokemonIndex > 0) {
-      setPokemonIndex(pokemonIndex - 1);
-    }
-  };
-
-  const handleNext = () => {
-
-    if (pokemonIndex < pokemonList.length - 1) {
-      setPokemonIndex(pokemonIndex + 1);
-    }
+  // Déclaration de la fonction updatePokemon qui prend en paramètre l'index
+  const updatePokemon = (index) => {
+    setPokemonIndex(index);
   };
   
   // Déclaration de la constante currentPokemon qui récupère l'objet pokemonList à l'index pokemonIndex
@@ -94,7 +86,8 @@ function App() {
         {/* Affichage du composant PokemonCard avec la props pokemon qui prend la valeur de la constante currentPokemon */}
         <PokemonCard pokemon={currentPokemon} />
       </div>
-      <NavBar onPrevious={handlePrevious} onNext={handleNext} pokemonIndex={pokemonIndex} pokemonList={pokemonList}/>
+      {/* Affichage du composant NavBar avec les props pokemonIndex, pokemonList et updatePokemon */}
+      <NavBar pokemonIndex={pokemonIndex} pokemonList={pokemonList} updatePokemon={updatePokemon}/>
     </>
     </ErrorBoundary>
   );
@@ -102,4 +95,3 @@ function App() {
 
 // Export du composant App
 export default App;
-
