@@ -77,7 +77,13 @@ function App() {
 
   // Déclaration de la fonction updatePokemon qui prend en paramètre l'index
   const updatePokemon = (index) => {
+
+    if (index === 3) {
+      alert("pika pikachu !!!");
+    }
+
     setPokemonIndex(index);
+
   };
 
   // Déclaration de la constante currentPokemon qui récupère l'objet pokemonList à l'index pokemonIndex
@@ -86,25 +92,23 @@ function App() {
   // Affichage du composant App
   return (
     <ErrorBoundary>
-    <>
-      <div>
-        <MyTitle />
-      </div>
-      <div>
-        {/* Affichage du composant PokemonCard avec la props pokemon qui prend la valeur de la constante currentPokemon */}
-        <PokemonCard pokemon={currentPokemon} />
-      </div>
-      {/* Affichage du composant NavBar avec les props pokemonIndex, pokemonList et updatePokemon */}
-      <NavBar pokemonIndex={pokemonIndex} pokemonList={pokemonList} updatePokemon={updatePokemon}/>
-    </>
+      <>
+        <div>
+          <MyTitle />
+        </div>
+        <div>
+          {/* Affichage du composant PokemonCard avec la props pokemon qui prend la valeur de la constante currentPokemon */}
+          <PokemonCard pokemon={currentPokemon} />
+        </div>
+        {/* Affichage du composant NavBar avec les props pokemonIndex, pokemonList et updatePokemon */}
+        <NavBar pokemonIndex={pokemonIndex} pokemonList={pokemonList} updatePokemon={updatePokemon} />
+      </>
     </ErrorBoundary>
   );
 };
 
 // Export du composant App
 export default App;
-
-// 2. Ouvrir une alerte au démarrage : dans le composant App, ouvre une alerte au "démarrage" de l'application avec le message "hello pokemon trainer :)". Tu peux utiliser le hook useEffect ici.
 
 // 3. Ouvrir une alerte lors de la sélection de Pikachu : dans le composant NavBar, détecte lorsque le Pokémon sélectionné devient "pikachu". Lorsque cela se produit, ouvre une alerte avec le message "pika pikachu !!!". Tu ne devrais pas utiliser le hook useEffect ici (voir "You Might Not Need an Effect").
 
