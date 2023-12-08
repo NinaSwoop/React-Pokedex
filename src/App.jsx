@@ -109,9 +109,3 @@ function App() {
 
 // Export du composant App
 export default App;
-
-// 3. Ouvrir une alerte lors de la sélection de Pikachu : dans le composant NavBar, détecte lorsque le Pokémon sélectionné devient "pikachu". Lorsque cela se produit, ouvre une alerte avec le message "pika pikachu !!!". Tu ne devrais pas utiliser le hook useEffect ici (voir "You Might Not Need an Effect").
-
-// 4. Validation : vérifie que les alertes s'affichent correctement au démarrage de l'application et lorsque Pikachu est sélectionné dans NavBar.
-
-// 5. Soumission : fournis le lien vers la branche events.1 de ton dépôt GitHub pour valider cette étape.
